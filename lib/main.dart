@@ -1,3 +1,4 @@
+import 'package:dsc_tiu/utils/auth.dart';
 import 'package:dsc_tiu/utils/root_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,15 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<FirebaseUser>.value(
-      value: FirebaseAuth.instance.onAuthStateChanged,
+    return MultiProvider(
+      providers: [
+        StreamProvider<FirebaseUser>.value(
+          value: FirebaseAuth.instance.onAuthStateChanged,
+        ),
+        ChangeNotifierProvider(
+          builder: (_) => Auth(),
+        )
+      ],
       child: RootPage(),
     );
   }

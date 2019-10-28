@@ -10,6 +10,9 @@ class RootPage extends StatelessWidget {
     bool isLoggedIn = Provider.of<FirebaseUser>(context) != null;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Roboto'
+      ),
       home: isLoggedIn ? HomePage() : SignInPage(),
     );
   }
