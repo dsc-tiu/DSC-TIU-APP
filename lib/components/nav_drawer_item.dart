@@ -1,4 +1,6 @@
+import 'package:dsc_tiu/config/dark_mode.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class NavDrawerItem extends StatelessWidget {
   final Color selectedColor;
@@ -16,6 +18,7 @@ class NavDrawerItem extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    bool isDarkModeOn = Provider.of<DarkMode>(context).isDarkModeOn;
     return ListTile(
       leading: Icon(
         icon,
@@ -24,7 +27,9 @@ class NavDrawerItem extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
-          color: isSelected ? selectedColor : Colors.black,
+          color: isSelected
+              ? selectedColor
+              : isDarkModeOn ? Colors.white : Colors.black,
         ),
       ),
       onTap: onPressed,
