@@ -4,7 +4,7 @@ import 'package:dsc_tiu/models/courses.dart';
 import 'package:dsc_tiu/models/sessions.dart';
 import 'package:flutter/foundation.dart';
 
-class DataService {
+class DataService extends ChangeNotifier {
   final Firestore _db = Firestore.instance;
   final String _sessionRef = 'sessions';
   final String _courseRef = 'courses';
