@@ -34,6 +34,14 @@ class NavDrawerList {
       UserAccountsDrawerHeader(
         accountEmail: Text(user.email),
         accountName: Text(user.displayName),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xff43cea2),
+              Color(0xff185a9d)
+            ],
+          ),
+        ),
         currentAccountPicture: ClipRRect(
           borderRadius: BorderRadius.circular(50.0),
           child: Image.network(user.photoUrl),
